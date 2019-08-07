@@ -138,6 +138,63 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+define('__dot_dot__/src/elements/cat/kawaii-cat',["require", "exports", "aurelia-framework", "./../kawaii-element", "./../../mood"], function (require, exports, aurelia_framework_1, kawaii_element_1, mood_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var KawaiiCat = (function (_super) {
+        __extends(KawaiiCat, _super);
+        function KawaiiCat() {
+            var _this = _super !== null && _super.apply(this, arguments) || this;
+            _this.size = 320;
+            _this.mood = mood_1.Mood.Excited;
+            _this.color = '#596881';
+            _this.paths = {
+                body: 'M113.876 132.295c.91 2.705 21.818 65.749-6.184 65.397H77.846c-27.898.35-7.248-62.228-6.195-65.365-19.954-2.157-47.848-9.752-55.173-35.81-3.673-1.957-6.497-3.081-6.497-3.081l4.667-5.333S-3.096 89.64 1.109 85.436s13.333-15.744 13.333-15.744-11.23 2.103-9.128 0c1.044-1.044 6.153-3.788 12.67-8.442 3.162-9.69 8.325-17.38 14.502-23.48-4.482-10.424-.853-20.191 1.822-21.206 2.226-.83 14.75 3.197 21.214 5.384 4.043-6.006 6.53-12.307 6.53-12.307l5.333 4.667S65.846-3.436 70.05.769s15.744 13.334 15.744 13.334-2.103-11.231 0-9.129c2.051 2.052 10.667 19.795 27.436 33.077-9.487-7.436-22-14.41-37.949-21.23-10.77 4.615-19.897 9.076-27.641 13.64 8.462-5.743 14.41-20.82 14.41-20.82l5.334 4.667S65.846-3.436 70.05.769c4.2 4.2 15.712 13.308 15.744 13.334-.008-.041-2.099-11.227 0-9.129.862.863 2.885 4.5 6.187 9.412l.48-.018v-.009s.052 0 .153.004l.154-.004c.306.019.832.04 1.554.084 3.182-4.76 5.14-8.265 5.985-9.11 2.102-2.102 0 9.129 0 9.129s11.538-9.129 15.743-13.334 2.667 13.539 2.667 13.539L124.05 10s2.475 6.22 6.474 12.204c6.58-2.216 18.582-6.04 20.757-5.23 2.672 1.014 6.296 10.76 1.838 21.17 6.084 6.113 11.15 13.797 14.24 23.454 6.28 4.443 11.16 7.077 12.178 8.094 2.103 2.103-9.128 0-9.128 0s9.128 11.539 13.334 15.744c4.018 4.018-12.005 2.792-13.437 2.675l-.01.097 4.575 5.228s-2.6 1.034-6.054 2.846c-7.188 26.118-34.949 33.806-54.942 36.013z',
+                shadow: 'M167.36 61.598c6.28 4.443 11.16 7.077 12.178 8.094 2.103 2.103-9.128 0-9.128 0s9.128 11.539 13.334 15.744c4.018 4.018-12.005 2.792-13.437 2.675l-.01.097 4.575 5.228s-2.6 1.034-6.054 2.846c-7.17 26.053-34.81 33.768-54.791 35.996-.72.08-1.433-.184-2.142-.791.847-.136 1.701-.282 2.562-.44 23.176-4.238 50.835-16.837 47.912-53.816-3.869-48.949-50.714-59.804-69.841-62.199-.02-.224-.038-.448-.056-.673 0 0 .667.011 1.878.085a1.95 1.95 0 0 1 .132-.224c3.094-4.646 5.004-8.055 5.836-8.887 2.102-2.102 0 9.129 0 9.129s11.538-9.129 15.743-13.334 2.667 13.539 2.667 13.539L124.05 10s2.508 6.302 6.554 12.323c1.037-.522 2.307-.958 2.492-1.02 10.446-3.511 16.508-4.954 18.185-4.329 2.672 1.014 6.296 10.76 1.838 21.17 6.084 6.113 11.15 13.797 14.24 23.454z',
+                legs: 'M8.846 3.692C7.36 11.59 4.59 20.615 8.692 28.205c.667 1.23-1.897 1.487-2.513 1.59C4.744 29.949 3 29.333 2.231 28c-4.36-8.051.102-18.205 1.743-26.667C4.18.205 9.154 2 8.846 3.693zM14.128 14.359c-.256 4.872 1.026 9.692 2.667 14.205.872 2.36 6.564.872 5.743-1.436-1.487-4.154-2.717-8.513-2.615-12.923.103-3.23 1.026-6.308 2.256-9.282 1.129-2.82-4.153-2.718-5.025-.564h-.513c-1.282 3.23-2.359 6.513-2.513 10z'
+            };
+            return _this;
+        }
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", Object)
+        ], KawaiiCat.prototype, "size", void 0);
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", Object)
+        ], KawaiiCat.prototype, "mood", void 0);
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", Object)
+        ], KawaiiCat.prototype, "color", void 0);
+        return KawaiiCat;
+    }(kawaii_element_1.KawaiiElement));
+    exports.KawaiiCat = KawaiiCat;
+});
+;
+define('text!__dot_dot__/src/elements/cat/kawaii-cat.html',[],function(){return "<template>\n    <svg xmlns=\"http://www.w3.org/2000/svg\" width.bind=\"size * 0.84\" height.bind=\"size\" viewBox=\"0 0 185 220\">\n        <g id=\"Kawaii-Builder\" fill=\"none\" fill-rule=\"evenodd\">\n            <g id=\"kawaii-cat\">\n                <g id=\"kawaii-cat_tail\" transform=\"translate(29.23 153.846)\" fill-rule=\"nonzero\">\n                    <path\n                        d=\"M45.487 29.59l3.18 5.077s-7.744 6.666-17.282 8.615C24.513 44.718.05 46.564.05 21.846s17.231-28.82 9.436-7.949c0 0-2.82 8.77.82 14.667 3.642 5.898 14.052 11.128 23.488 6.257l11.692-5.231z\"\n                        id=\"tail_inner_shadow\" fill.bind=\"color\" />\n                    <path\n                        d=\"M45.487 29.59l3.18 5.077s-7.744 6.666-17.282 8.615C24.513 44.718.05 46.564.05 21.846s17.231-28.82 9.436-7.949c0 0-2.82 8.77.82 14.667 3.642 5.898 14.052 11.128 23.488 6.257l11.692-5.231z\"\n                        id=\"tail_inner\" fill=\"#121212\" opacity=\"0.25\" />\n                </g>\n                <g id=\"kawaii-cat_legs\" transform=\"translate(81 190)\" fill.bind=\"color\" fill-rule=\"nonzero\">\n                    <path d.one-time=\"paths.legs\" id=\"kawaii-cat_legs_inner\" />\n                </g>\n                <g id=\"kawaii-cat_arms\" transform=\"translate(58 132)\" fill.bind=\"color\" fill-rule=\"nonzero\">\n                    <path d=\"M55.949.205s27.948 51.641 2 53.898\" id=\"arm-r\" />\n                    <path d=\"M13.641.205s-27.949 51.641-2 53.898\" id=\"arm-l\" />\n                </g>\n                <g id=\"kawaii-cat_arms-shadow\" transform=\"translate(58 132)\" fill=\"#121212\" fill-rule=\"nonzero\"\n                    opacity=\"0.25\">\n                    <path d=\"M55.949.205s27.948 51.641 2 53.898\" id=\"arm-r\" />\n                    <path d=\"M13.641.205s-27.949 51.641-2 53.898\" id=\"arm-l\" />\n                </g>\n                <path d.one-time=\"paths.body\" id=\"kawaii-cat_body\" fill.bind=\"color\" fill-rule=\"nonzero\" />\n                <g id=\"kawaii-cat_ears\" transform=\"translate(34 23)\" fill=\"#121212\" fill-rule=\"nonzero\" opacity=\"0.25\">\n                    <path d=\"M103.795 2.897s18.718-8.974 13.077 8.975\" id=\"kawaii-cat_ear-r\" />\n                    <path d=\"M14.923 2.538S-3.795-6.436 1.846 11.513\" id=\"kawaii-cat_ear-l\" />\n                </g>\n                <path\n                    d=\"M92.243 190.282h.004v-48.667h-.004c7.075-.36 11.946-2.615 11.946-2.615 16.709 54.254-11.62 51.324-11.946 51.282-.376.042-28.705 2.972-11.945-51.282 0 0 4.869 2.255 11.942 2.615z\"\n                    id=\"kawaii-cat_belly\" fill=\"#121212\" fill-rule=\"nonzero\" opacity=\"0.25\" />\n                <g as-element=\"kawaii-face\" mood.bind=\"mood\" transform=\"translate(59 67)\" unique-id.bind=\"getUniqueId()\" />\n                <path\n                    d=\"M96.935 77.625c-.975-2.106-8.13-2.227-8.889 0-.47 1.458 2.746 4.454 4.372 4.373 1.663-.121 5.095-3.118 4.517-4.373z\"\n                    id=\"kawaii-cat_nose\" fill=\"#121212\" fill-rule=\"nonzero\" />\n                <path d.one-time=\"paths.shadow\" id=\"kawaii-cat_shadow\" fill=\"#121212\" fill-rule=\"nonzero\" opacity=\"0.1\" />\n            </g>\n        </g>\n    </svg>\n</template>\n";});;
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 define('__dot_dot__/src/elements/credit-card/kawaii-credit-card',["require", "exports", "aurelia-framework", "./../kawaii-element", "./../../mood"], function (require, exports, aurelia_framework_1, kawaii_element_1, mood_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -262,6 +319,7 @@ define('__dot_dot__/src/index',["require", "exports", "aurelia-pal"], function (
             aurelia_pal_1.PLATFORM.moduleName('./elements/face/kawaii-face'),
             aurelia_pal_1.PLATFORM.moduleName('./elements/backpack/kawaii-backpack'),
             aurelia_pal_1.PLATFORM.moduleName('./elements/browser/kawaii-browser'),
+            aurelia_pal_1.PLATFORM.moduleName('./elements/cat/kawaii-cat'),
             aurelia_pal_1.PLATFORM.moduleName('./elements/credit-card/kawaii-credit-card')
         ]);
     }
@@ -298,7 +356,7 @@ define('app',["require", "exports"], function (require, exports) {
     exports.App = App;
 });
 ;
-define('text!app.html',[],function(){return "<template>\n    <h1>Aurelia Kawaii</h1>\n    <p>Aurelia Kawaii is a fork of <a href=\"https://github.com/miukimiu/react-kawaii\">React Kawaii</a>: cute SVG\n        illustrations as custom elements. Ideal if you want to give some cuteness and personality to your Aurelia\n        application.</p>\n\n    <hr>\n\n    <h2>Backpack</h2>\n\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"blissful\"></kawaii-backpack>\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"sad\"></kawaii-backpack>\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"happy\"></kawaii-backpack>\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"shocked\"></kawaii-backpack>\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"lovestruck\"></kawaii-backpack>\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"excited\"></kawaii-backpack>\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"ko\"></kawaii-backpack>\n\n    <h2>Browser</h2>\n\n    <kawaii-browser size=\"80\" mood=\"blissful\"></kawaii-browser>\n    <kawaii-browser size=\"80\" mood=\"sad\"></kawaii-browser>\n    <kawaii-browser size=\"80\" mood=\"happy\"></kawaii-browser>\n    <kawaii-browser size=\"80\" mood=\"shocked\"></kawaii-browser>\n    <kawaii-browser size=\"80\" mood=\"lovestruck\"></kawaii-browser>\n    <kawaii-browser size=\"80\" mood=\"excited\"></kawaii-browser>\n    <kawaii-browser size=\"80\" mood=\"ko\"></kawaii-browser>\n\n    <h2>Credit Card</h2>\n\n    <kawaii-credit-card size=\"85\" mood=\"blissful\"></kawaii-credit-card>\n    <kawaii-credit-card size=\"85\" mood=\"sad\"></kawaii-credit-card>\n    <kawaii-credit-card size=\"85\" mood=\"happy\"></kawaii-credit-card>\n    <kawaii-credit-card size=\"85\" mood=\"shocked\"></kawaii-credit-card>\n    <kawaii-credit-card size=\"85\" mood=\"lovestruck\"></kawaii-credit-card>\n    <kawaii-credit-card size=\"85\" mood=\"excited\"></kawaii-credit-card>\n    <kawaii-credit-card size=\"85\" mood=\"ko\"></kawaii-credit-card>\n\n</template>\n";});;
+define('text!app.html',[],function(){return "<template>\n    <h1>Aurelia Kawaii</h1>\n    <p>Aurelia Kawaii is a fork of <a href=\"https://github.com/miukimiu/react-kawaii\">React Kawaii</a>: cute SVG\n        illustrations as custom elements. Ideal if you want to give some cuteness and personality to your Aurelia\n        application.</p>\n\n    <hr>\n\n    <h2>Backpack</h2>\n\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"blissful\"></kawaii-backpack>\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"sad\"></kawaii-backpack>\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"happy\"></kawaii-backpack>\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"shocked\"></kawaii-backpack>\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"lovestruck\"></kawaii-backpack>\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"excited\"></kawaii-backpack>\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"ko\"></kawaii-backpack>\n\n    <h2>Browser</h2>\n\n    <kawaii-browser size=\"80\" mood=\"blissful\"></kawaii-browser>\n    <kawaii-browser size=\"80\" mood=\"sad\"></kawaii-browser>\n    <kawaii-browser size=\"80\" mood=\"happy\"></kawaii-browser>\n    <kawaii-browser size=\"80\" mood=\"shocked\"></kawaii-browser>\n    <kawaii-browser size=\"80\" mood=\"lovestruck\"></kawaii-browser>\n    <kawaii-browser size=\"80\" mood=\"excited\"></kawaii-browser>\n    <kawaii-browser size=\"80\" mood=\"ko\"></kawaii-browser>\n\n    <h2>Cat</h2>\n\n    <kawaii-cat size=\"140\" mood=\"blissful\"></kawaii-cat>\n    <kawaii-cat size=\"140\" mood=\"sad\"></kawaii-cat>\n    <kawaii-cat size=\"140\" mood=\"happy\"></kawaii-cat>\n    <kawaii-cat size=\"140\" mood=\"shocked\"></kawaii-cat>\n    <kawaii-cat size=\"140\" mood=\"lovestruck\"></kawaii-cat>\n    <kawaii-cat size=\"140\" mood=\"excited\"></kawaii-cat>\n    <kawaii-cat size=\"140\" mood=\"ko\"></kawaii-cat>\n\n    <h2>Credit Card</h2>\n\n    <kawaii-credit-card size=\"85\" mood=\"blissful\"></kawaii-credit-card>\n    <kawaii-credit-card size=\"85\" mood=\"sad\"></kawaii-credit-card>\n    <kawaii-credit-card size=\"85\" mood=\"happy\"></kawaii-credit-card>\n    <kawaii-credit-card size=\"85\" mood=\"shocked\"></kawaii-credit-card>\n    <kawaii-credit-card size=\"85\" mood=\"lovestruck\"></kawaii-credit-card>\n    <kawaii-credit-card size=\"85\" mood=\"excited\"></kawaii-credit-card>\n    <kawaii-credit-card size=\"85\" mood=\"ko\"></kawaii-credit-card>\n\n</template>\n";});;
 define('environment',["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });

@@ -24820,6 +24820,8 @@ define('elements/backpack/kawaii-backpack',['__dot_dot__/src/elements/backpack/k
 define('text!elements/backpack/kawaii-backpack.html',['text!__dot_dot__/src/elements/backpack/kawaii-backpack.html'],function(m){return m;});
 define('elements/browser/kawaii-browser',['__dot_dot__/src/elements/browser/kawaii-browser'],function(m){return m;});
 define('text!elements/browser/kawaii-browser.html',['text!__dot_dot__/src/elements/browser/kawaii-browser.html'],function(m){return m;});
+define('elements/cat/kawaii-cat',['__dot_dot__/src/elements/cat/kawaii-cat'],function(m){return m;});
+define('text!elements/cat/kawaii-cat.html',['text!__dot_dot__/src/elements/cat/kawaii-cat.html'],function(m){return m;});
 define('elements/credit-card/kawaii-credit-card',['__dot_dot__/src/elements/credit-card/kawaii-credit-card'],function(m){return m;});
 define('text!elements/credit-card/kawaii-credit-card.html',['text!__dot_dot__/src/elements/credit-card/kawaii-credit-card.html'],function(m){return m;});
 define('elements/face/kawaii-face',['__dot_dot__/src/elements/face/kawaii-face'],function(m){return m;});
@@ -24830,6 +24832,8 @@ define('resources/elements/backpack/kawaii-backpack',['__dot_dot__/src/elements/
 define('text!resources/elements/backpack/kawaii-backpack.html',['text!__dot_dot__/src/elements/backpack/kawaii-backpack.html'],function(m){return m;});
 define('resources/elements/browser/kawaii-browser',['__dot_dot__/src/elements/browser/kawaii-browser'],function(m){return m;});
 define('text!resources/elements/browser/kawaii-browser.html',['text!__dot_dot__/src/elements/browser/kawaii-browser.html'],function(m){return m;});
+define('resources/elements/cat/kawaii-cat',['__dot_dot__/src/elements/cat/kawaii-cat'],function(m){return m;});
+define('text!resources/elements/cat/kawaii-cat.html',['text!__dot_dot__/src/elements/cat/kawaii-cat.html'],function(m){return m;});
 define('resources/elements/credit-card/kawaii-credit-card',['__dot_dot__/src/elements/credit-card/kawaii-credit-card'],function(m){return m;});
 define('text!resources/elements/credit-card/kawaii-credit-card.html',['text!__dot_dot__/src/elements/credit-card/kawaii-credit-card.html'],function(m){return m;});
 define('resources/elements/face/kawaii-face',['__dot_dot__/src/elements/face/kawaii-face'],function(m){return m;});
@@ -24858,6 +24862,8 @@ function _aureliaConfigureModuleLoader(){requirejs.config({
       "text!__dot_dot__/src/elements/backpack/kawaii-backpack.html",
       "__dot_dot__/src/elements/browser/kawaii-browser",
       "text!__dot_dot__/src/elements/browser/kawaii-browser.html",
+      "__dot_dot__/src/elements/cat/kawaii-cat",
+      "text!__dot_dot__/src/elements/cat/kawaii-cat.html",
       "__dot_dot__/src/elements/credit-card/kawaii-credit-card",
       "text!__dot_dot__/src/elements/credit-card/kawaii-credit-card.html",
       "__dot_dot__/src/elements/face/kawaii-face",

@@ -6,6 +6,7 @@ export function configure(config: FrameworkConfiguration) {
         PLATFORM.moduleName('./elements/face/kawaii-face'),
         PLATFORM.moduleName('./elements/backpack/kawaii-backpack'),
         PLATFORM.moduleName('./elements/browser/kawaii-browser'),
+        PLATFORM.moduleName('./elements/cat/kawaii-cat'),
         PLATFORM.moduleName('./elements/credit-card/kawaii-credit-card')
     ]);
 }
