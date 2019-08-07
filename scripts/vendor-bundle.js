@@ -24826,6 +24826,8 @@ define('elements/credit-card/kawaii-credit-card',['__dot_dot__/src/elements/cred
 define('text!elements/credit-card/kawaii-credit-card.html',['text!__dot_dot__/src/elements/credit-card/kawaii-credit-card.html'],function(m){return m;});
 define('elements/face/kawaii-face',['__dot_dot__/src/elements/face/kawaii-face'],function(m){return m;});
 define('text!elements/face/kawaii-face.html',['text!__dot_dot__/src/elements/face/kawaii-face.html'],function(m){return m;});
+define('elements/file/kawaii-file',['__dot_dot__/src/elements/file/kawaii-file'],function(m){return m;});
+define('text!elements/file/kawaii-file.html',['text!__dot_dot__/src/elements/file/kawaii-file.html'],function(m){return m;});
 define('elements/kawaii-element',['__dot_dot__/src/elements/kawaii-element'],function(m){return m;});
 define('resources',['resources/index'],function(m){return m;});
 define('resources/elements/backpack/kawaii-backpack',['__dot_dot__/src/elements/backpack/kawaii-backpack'],function(m){return m;});
@@ -24838,6 +24840,8 @@ define('resources/elements/credit-card/kawaii-credit-card',['__dot_dot__/src/ele
 define('text!resources/elements/credit-card/kawaii-credit-card.html',['text!__dot_dot__/src/elements/credit-card/kawaii-credit-card.html'],function(m){return m;});
 define('resources/elements/face/kawaii-face',['__dot_dot__/src/elements/face/kawaii-face'],function(m){return m;});
 define('text!resources/elements/face/kawaii-face.html',['text!__dot_dot__/src/elements/face/kawaii-face.html'],function(m){return m;});
+define('resources/elements/file/kawaii-file',['__dot_dot__/src/elements/file/kawaii-file'],function(m){return m;});
+define('text!resources/elements/file/kawaii-file.html',['text!__dot_dot__/src/elements/file/kawaii-file.html'],function(m){return m;});
 define('resources/elements/kawaii-element',['__dot_dot__/src/elements/kawaii-element'],function(m){return m;});
 define('resources/index',['__dot_dot__/src/index'],function(m){return m;});
 define('resources/mood',['__dot_dot__/src/mood'],function(m){return m;});
@@ -24868,6 +24872,8 @@ function _aureliaConfigureModuleLoader(){requirejs.config({
       "text!__dot_dot__/src/elements/credit-card/kawaii-credit-card.html",
       "__dot_dot__/src/elements/face/kawaii-face",
       "text!__dot_dot__/src/elements/face/kawaii-face.html",
+      "__dot_dot__/src/elements/file/kawaii-file",
+      "text!__dot_dot__/src/elements/file/kawaii-file.html",
       "__dot_dot__/src/elements/kawaii-element",
       "__dot_dot__/src/index",
       "__dot_dot__/src/mood",

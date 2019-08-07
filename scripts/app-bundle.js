@@ -297,6 +297,62 @@ define('__dot_dot__/src/elements/face/kawaii-face',["require", "exports", "aurel
 });
 ;
 define('text!__dot_dot__/src/elements/face/kawaii-face.html',[],function(){return "<template>\n    <svg remove>\n        <g id=\"kawaii-face\">\n            <defs>\n                <path d.one-time=\"paths.defs\" id=\"kawaii-face__path-1\" />\n            </defs>\n            <g id=\"kawaii-face__mouth\" transform=\"translate(18.000000, 16.000000)\">\n                <g if.bind=\"mood === 'blissful' || mood === 'lovestruck' || mood === 'excited'\"\n                    id=\"kawaii-face__mouth__joy\" transform=\"translate(0.000000, 1.000000)\">\n                    <mask id=\"kawaii-face__mask-2-${uniqueId}\" fill=\"white\">\n                        <use xlink:href=\"#kawaii-face__path-1\" />\n                    </mask>\n                    <use id=\"Combined-Shape\" fill=\"#000000\" xlink:href=\"#kawaii-face__path-1\" />\n                    <path d.one-time=\"paths.tongue\" id=\"kawaii-face__tongue\" fill=\"#E74144\"\n                        mask=\"url(#kawaii-face__mask-2-${uniqueId})\"\n                        transform=\"translate(15.000000, 11.431885) scale(1, -1) translate(-15.000000, -11.431885)\" />\n                </g>\n\n                <path if.bind=\"mood === 'happy'\" d.one-time=\"paths.happy\" id=\"kawaii-face__mouth__happy\" fill=\"#000000\" />\n\n                <ellipse if.bind=\"mood === 'shocked'\" id=\"kawaii-face__mouth__shocked\" cx=\"15\" cy=\"14\" rx=\"9\" ry=\"10\"\n                    fill=\"#000000\" />\n\n                <path if.bind=\"mood === 'sad' || mood === 'ko'\" d.one-time=\"paths.sad\" id=\"kawaii-face__mouth__sad\"\n                    fill=\"#000000\"\n                    transform=\"translate(14.999999, 5.500000) scale(1, -1) translate(-14.999999, -5.500000)\" />\n            </g>\n            <g id=\"kawaii-face__blush\" transform=\"translate(0.000000, 15.000000)\" fill=\"#000000\" opacity=\"0.2\">\n                <circle id=\"Oval\" cx=\"3\" cy=\"3\" r=\"3\" />\n                <circle id=\"Oval\" cx=\"63\" cy=\"3\" r=\"3\" />\n            </g>\n            <g id=\"kawaii-face__eyes\" transform=\"translate(2.000000, 0.000000)\" fill=\"#000000\">\n                <g if.bind=\"mood === 'blissful'\" id=\"kawaii-face__eyes__arc\" transform=\"translate(1.000000, 0.000000)\">\n                    <path d.one-time=\"paths.bliss1\" id=\"Fill-5\" />\n                    <path d.one-time=\"paths.bliss2\" id=\"Fill-5\" />\n                </g>\n\n                <g if.bind=\"mood === 'happy' || mood === 'sad' || mood === 'shocked' || mood === 'excited'\"\n                    id=\"kawaii-face__eyes__circle\" transform=\"translate(1.000000, 2.000000)\">\n                    <circle id=\"Oval-3\" cx=\"4.5\" cy=\"4.5\" r=\"4.5\" />\n                    <circle id=\"Oval-3\" cx=\"56.5\" cy=\"4.5\" r=\"4.5\" />\n                </g>\n\n                <g if.bind=\"mood === 'lovestruck'\" id=\"kawaii-face__eyes__heart\"\n                    transform=\"translate(0.000000, 2.000000)\" fillRule=\"nonzero\">\n                    <path d.one-time=\"paths.lovestruck1\" id=\"Shape\" />\n                    <path d.one-time=\"paths.lovestruck2\" id=\"Shape\" />\n                </g>\n\n                <g if.bind=\"mood === 'ko'\" id=\"kawaii-face__eyes__ko\" transform=\"translate(1.500000, 1.000000)\"\n                    fillRule=\"nonzero\">\n                    <path d.one-time=\"paths.ko1\" id=\"Cross\" />\n                    <path d.one-time=\"paths.ko2\" id=\"Cross\" />\n                </g>\n            </g>\n        </g>\n    </svg>\n</template>\n";});;
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+define('__dot_dot__/src/elements/file/kawaii-file',["require", "exports", "aurelia-framework", "./../kawaii-element", "./../../mood"], function (require, exports, aurelia_framework_1, kawaii_element_1, mood_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var KawaiiFile = (function (_super) {
+        __extends(KawaiiFile, _super);
+        function KawaiiFile() {
+            var _this = _super !== null && _super.apply(this, arguments) || this;
+            _this.size = 200;
+            _this.mood = mood_1.Mood.KO;
+            _this.color = '#83D1FB';
+            _this.paths = {
+                shape: 'M14.938 0C7.24 0 .998 6.24.998 13.938v125.124C1 146.76 7.24 153 14.938 153h76.124c7.698 0 13.939-6.24 13.939-13.938V35.569c0-.457-.183-.895-.505-1.218L70.65.504',
+                shadow: 'M105,34.8555 L95.954,34.8555 C95.961,35.1885 95.979,35.5195 95.979,35.8545 L95.979,138.9965 C95.979,146.7255 89.648,152.9895 81.836,152.9895 L90.927,152.9895 C98.739,152.9895 105.07,146.7255 105.07,138.9965 L105.07,35.8545 C105.07,35.5215 105.066,35.1885 105.059,34.8555 L105,34.8555 Z'
+            };
+            return _this;
+        }
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", Object)
+        ], KawaiiFile.prototype, "size", void 0);
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", Object)
+        ], KawaiiFile.prototype, "mood", void 0);
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", Object)
+        ], KawaiiFile.prototype, "color", void 0);
+        return KawaiiFile;
+    }(kawaii_element_1.KawaiiElement));
+    exports.KawaiiFile = KawaiiFile;
+});
+;
+define('text!__dot_dot__/src/elements/file/kawaii-file.html',[],function(){return "<template>\n    <svg width.bind=\"size * 0.68\" height.bind=\"size\" viewBox=\"0 0 105 153\" xmlns=\"http://www.w3.org/2000/svg\"\n        xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n        <g id=\"kawaii-file\">\n            <g id=\"kawaii-file__body\" fill-rule=\"nonzero\">\n                <path d.one-time=\"paths.shape\" id=\"kawaii-file__shape\" fill.bind=\"color\" />\n                <path d.one-time=\"paths.shadow\" id=\"kawaii-file__shadow\" fill=\"#000\" opacity=\".1\" />\n                <path id=\"kawaii-file__fold\" fill=\"#000\" opacity=\".2\"\n                    d=\"M70.1445,0 L70.1445,22.641 C70.1445,29.387 75.6135,34.855 82.3595,34.855 L104.9995,34.855 L70.1445,0\" />\n            </g>\n            <g as-element=\"kawaii-face\" mood.bind=\"mood\" transform=\"translate(20 66)\" unique-id.bind=\"getUniqueId()\" />\n        </g>\n    </svg>\n</template>\n";});;
 define('__dot_dot__/src/elements/kawaii-element',["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -320,7 +376,8 @@ define('__dot_dot__/src/index',["require", "exports", "aurelia-pal"], function (
             aurelia_pal_1.PLATFORM.moduleName('./elements/backpack/kawaii-backpack'),
             aurelia_pal_1.PLATFORM.moduleName('./elements/browser/kawaii-browser'),
             aurelia_pal_1.PLATFORM.moduleName('./elements/cat/kawaii-cat'),
-            aurelia_pal_1.PLATFORM.moduleName('./elements/credit-card/kawaii-credit-card')
+            aurelia_pal_1.PLATFORM.moduleName('./elements/credit-card/kawaii-credit-card'),
+            aurelia_pal_1.PLATFORM.moduleName('./elements/file/kawaii-file')
         ]);
     }
     exports.configure = configure;
@@ -356,7 +413,7 @@ define('app',["require", "exports"], function (require, exports) {
     exports.App = App;
 });
 ;
-define('text!app.html',[],function(){return "<template>\n    <h1>Aurelia Kawaii</h1>\n    <p>Aurelia Kawaii is a fork of <a href=\"https://github.com/miukimiu/react-kawaii\">React Kawaii</a>: cute SVG\n        illustrations as custom elements. Ideal if you want to give some cuteness and personality to your Aurelia\n        application.</p>\n\n    <hr>\n\n    <h2>Backpack</h2>\n\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"blissful\"></kawaii-backpack>\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"sad\"></kawaii-backpack>\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"happy\"></kawaii-backpack>\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"shocked\"></kawaii-backpack>\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"lovestruck\"></kawaii-backpack>\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"excited\"></kawaii-backpack>\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"ko\"></kawaii-backpack>\n\n    <h2>Browser</h2>\n\n    <kawaii-browser size=\"80\" mood=\"blissful\"></kawaii-browser>\n    <kawaii-browser size=\"80\" mood=\"sad\"></kawaii-browser>\n    <kawaii-browser size=\"80\" mood=\"happy\"></kawaii-browser>\n    <kawaii-browser size=\"80\" mood=\"shocked\"></kawaii-browser>\n    <kawaii-browser size=\"80\" mood=\"lovestruck\"></kawaii-browser>\n    <kawaii-browser size=\"80\" mood=\"excited\"></kawaii-browser>\n    <kawaii-browser size=\"80\" mood=\"ko\"></kawaii-browser>\n\n    <h2>Cat</h2>\n\n    <kawaii-cat size=\"140\" mood=\"blissful\"></kawaii-cat>\n    <kawaii-cat size=\"140\" mood=\"sad\"></kawaii-cat>\n    <kawaii-cat size=\"140\" mood=\"happy\"></kawaii-cat>\n    <kawaii-cat size=\"140\" mood=\"shocked\"></kawaii-cat>\n    <kawaii-cat size=\"140\" mood=\"lovestruck\"></kawaii-cat>\n    <kawaii-cat size=\"140\" mood=\"excited\"></kawaii-cat>\n    <kawaii-cat size=\"140\" mood=\"ko\"></kawaii-cat>\n\n    <h2>Credit Card</h2>\n\n    <kawaii-credit-card size=\"85\" mood=\"blissful\"></kawaii-credit-card>\n    <kawaii-credit-card size=\"85\" mood=\"sad\"></kawaii-credit-card>\n    <kawaii-credit-card size=\"85\" mood=\"happy\"></kawaii-credit-card>\n    <kawaii-credit-card size=\"85\" mood=\"shocked\"></kawaii-credit-card>\n    <kawaii-credit-card size=\"85\" mood=\"lovestruck\"></kawaii-credit-card>\n    <kawaii-credit-card size=\"85\" mood=\"excited\"></kawaii-credit-card>\n    <kawaii-credit-card size=\"85\" mood=\"ko\"></kawaii-credit-card>\n\n</template>\n";});;
+define('text!app.html',[],function(){return "<template>\n    <h1>Aurelia Kawaii</h1>\n    <p>Aurelia Kawaii is a fork of <a href=\"https://github.com/miukimiu/react-kawaii\">React Kawaii</a>: cute SVG\n        illustrations as custom elements. Ideal if you want to give some cuteness and personality to your Aurelia\n        application.</p>\n\n    <hr>\n\n    <h2>Backpack</h2>\n\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"blissful\"></kawaii-backpack>\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"sad\"></kawaii-backpack>\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"happy\"></kawaii-backpack>\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"shocked\"></kawaii-backpack>\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"lovestruck\"></kawaii-backpack>\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"excited\"></kawaii-backpack>\n    <kawaii-backpack size=\"180\" color=\"#FFD882\" mood=\"ko\"></kawaii-backpack>\n\n    <h2>Browser</h2>\n\n    <kawaii-browser size=\"80\" mood=\"blissful\"></kawaii-browser>\n    <kawaii-browser size=\"80\" mood=\"sad\"></kawaii-browser>\n    <kawaii-browser size=\"80\" mood=\"happy\"></kawaii-browser>\n    <kawaii-browser size=\"80\" mood=\"shocked\"></kawaii-browser>\n    <kawaii-browser size=\"80\" mood=\"lovestruck\"></kawaii-browser>\n    <kawaii-browser size=\"80\" mood=\"excited\"></kawaii-browser>\n    <kawaii-browser size=\"80\" mood=\"ko\"></kawaii-browser>\n\n    <h2>Cat</h2>\n\n    <kawaii-cat size=\"140\" mood=\"blissful\"></kawaii-cat>\n    <kawaii-cat size=\"140\" mood=\"sad\"></kawaii-cat>\n    <kawaii-cat size=\"140\" mood=\"happy\"></kawaii-cat>\n    <kawaii-cat size=\"140\" mood=\"shocked\"></kawaii-cat>\n    <kawaii-cat size=\"140\" mood=\"lovestruck\"></kawaii-cat>\n    <kawaii-cat size=\"140\" mood=\"excited\"></kawaii-cat>\n    <kawaii-cat size=\"140\" mood=\"ko\"></kawaii-cat>\n\n    <h2>Credit Card</h2>\n\n    <kawaii-credit-card size=\"85\" mood=\"blissful\"></kawaii-credit-card>\n    <kawaii-credit-card size=\"85\" mood=\"sad\"></kawaii-credit-card>\n    <kawaii-credit-card size=\"85\" mood=\"happy\"></kawaii-credit-card>\n    <kawaii-credit-card size=\"85\" mood=\"shocked\"></kawaii-credit-card>\n    <kawaii-credit-card size=\"85\" mood=\"lovestruck\"></kawaii-credit-card>\n    <kawaii-credit-card size=\"85\" mood=\"excited\"></kawaii-credit-card>\n    <kawaii-credit-card size=\"85\" mood=\"ko\"></kawaii-credit-card>\n\n    <h2>File</h2>\n\n    <kawaii-file size=\"170\" mood=\"blissful\"></kawaii-file>\n    <kawaii-file size=\"170\" mood=\"sad\"></kawaii-file>\n    <kawaii-file size=\"170\" mood=\"happy\"></kawaii-file>\n    <kawaii-file size=\"170\" mood=\"shocked\"></kawaii-file>\n    <kawaii-file size=\"170\" mood=\"lovestruck\"></kawaii-file>\n    <kawaii-file size=\"170\" mood=\"excited\"></kawaii-file>\n    <kawaii-file size=\"170\" mood=\"ko\"></kawaii-file>\n\n</template>\n";});;
 define('environment',["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
