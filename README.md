@@ -1,6 +1,6 @@
 # Aurelia Kawaii
 
-Aurelia Kawaii is a fork of [React Kawaii](https://github.com/miukimiu/react-kawaii): cute SVG illustrations as custom elements. Ideal if you want to give some cuteness and personality to your Aurelia application.
+[Aurelia Kawaii](https://cuddlebunny.github.io/aurelia-kawaii/) is a fork of [React Kawaii](https://github.com/miukimiu/react-kawaii): cute SVG illustrations as custom elements. Ideal if you want to give some cuteness and personality to your Aurelia application.
 
 # Install
 
