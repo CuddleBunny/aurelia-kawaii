@@ -4,16 +4,18 @@
 
 # Install
 
+COMING SOON.
+
 With npm:
 
 ```
-npm install --save react-kawaii
+npm install --save aurelia-kawaii
 ```
 
 With yarn:
 
 ```
-yarn add react-kawaii
+yarn add aurelia-kawaii
 ```
 
 How to use:
