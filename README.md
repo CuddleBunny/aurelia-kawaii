@@ -4,8 +4,6 @@
 
 # Install
 
-COMING SOON.
-
 With npm:
 
 ```
