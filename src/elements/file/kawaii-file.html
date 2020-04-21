@@ -8,9 +8,9 @@
     >
       <g id="kawaii-file">
         <g id="kawaii-file__body" fill-rule="nonzero">
-          <path d.one-time="paths.shape" id="kawaii-file__shape" fill.bind="color" />
+          <path d.bind="paths.shape" id="kawaii-file__shape" fill.bind="color" />
           <path
-            d.one-time="paths.shadow"
+            d.bind="paths.shadow"
             id="kawaii-file__shadow"
             fill="#000"
             opacity=".1"
@@ -23,7 +23,7 @@
           />
         </g>
         <g as-element="kawaii-face"
-          mood.one-time="mood"
+          mood.bind="mood"
           transform="translate(20 66)"
           unique-id.bind="getUniqueId()"
         />

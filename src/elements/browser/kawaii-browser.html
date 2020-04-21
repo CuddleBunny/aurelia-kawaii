@@ -8,15 +8,15 @@
     >
       <g id="kawaii-browser">
         <g id="kawaii-browser__body" fill-rule="nonzero">
-          <path d.one-time="paths.shape" id="kawaii-browser__shape" fill.bind="color" />
+          <path d.bind="paths.shape" id="kawaii-browser__shape" fill.bind="color" />
           <path
-            d.one-time="paths.shadow"
+            d.bind="paths.shadow"
             id="kawaii-browser__shadow"
             fill="#121212"
             opacity=".1"
           />
           <g id="address-bar" transform="translate(.097)">
-            <path d.one-time="paths.addressBar" fill="#111" />
+            <path d.bind="paths.addressBar" fill="#111" />
             <ellipse fill="#FFF" cx="168.855" cy="10.901" rx="3.4" ry="3.395" />
             <ellipse fill="#FFF" cx="180.074" cy="10.901" rx="3.4" ry="3.395" />
             <g id="address" transform="translate(12.654 5.47)" fill="#FFF">
@@ -31,7 +31,7 @@
           </g>
         </g>
         <g as-element="kawaii-face"
-          mood.one-time="mood"
+          mood.bind="mood"
           transform="translate(67 63)"
           unique-id.bind="getUniqueId()"
         />

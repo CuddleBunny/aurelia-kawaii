@@ -8,9 +8,9 @@
     >
       <g id="kawaii-creditCard">
         <g id="kawaii-creditCard__body" fill-rule="nonzero">
-          <path d.one-time="paths.shape" id="kawaii-creditCard__shape" fill.bind="color" />
+          <path d.bind="paths.shape" id="kawaii-creditCard__shape" fill.bind="color" />
           <path
-            d.one-time="paths.shadow"
+            d.bind="paths.shadow"
             id="kawaii-creditCard__shadow"
             fill="#000"
             opacity=".1"
@@ -22,7 +22,7 @@
           />
         </g>
         <g as-element="kawaii-face"
-          mood.one-time="mood"
+          mood.bind="mood"
           transform="translate(66 73)"
           unique-id.bind="getUniqueId()"
         />

@@ -13,8 +13,8 @@
         { "match": "clipRule", "replace": "clip-rule" },
         { "match": "xlinkHref", "replace": "xlink:href" },
         { "match": "xmlnsXlink", "replace": "xmlns:xlink" },
-        { "match": "d={([^}]*)}", "replace": "d.one-time=\"$1\"", "isRegex": true },
-        { "match": "(\\w*)={([^}]*)}", "replace": "$1.bind=\"$2\"", "isRegex": true }
+        { "match": "(\\w*)={([^}]*)}", "replace": "$1.bind=\"$2\"", "isRegex": true },
+        { "match": "d={([^}]*)}", "replace": "d.one-time=\"$1\"", "isRegex": true }
     ],
     "moodMap": {
         "sad": "Sad",

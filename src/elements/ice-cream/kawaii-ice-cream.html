@@ -9,17 +9,17 @@
     >
       <g id="kawaii-iceCream">
         <g fill-rule="nonzero">
-          <path d.one-time="paths.stick" id="kawaii-iceCream__stick" fill="#FCCB7E" />
-          <path d.one-time="paths.shape" id="kawaii-iceCream__shape" fill.bind="color" />
+          <path d.bind="paths.stick" id="kawaii-iceCream__stick" fill="#FCCB7E" />
+          <path d.bind="paths.shape" id="kawaii-iceCream__shape" fill.bind="color" />
           <path
-            d.one-time="paths.shadow"
+            d.bind="paths.shadow"
             id="kawaii-iceCream__shadow"
             fill="#000000"
             opacity=".1"
           />
         </g>
         <g as-element="kawaii-face"
-          mood.one-time="mood"
+          mood.bind="mood"
           transform="translate(22.000000, 81.000000)"
           unique-id.bind="getUniqueId()"
         />

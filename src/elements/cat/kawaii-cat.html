@@ -30,7 +30,7 @@
             fill.bind="color"
             fill-rule="nonzero"
           >
-            <path d.one-time="paths.legs" id="kawaii-cat_legs_inner" />
+            <path d.bind="paths.legs" id="kawaii-cat_legs_inner" />
           </g>
           <g
             id="kawaii-cat_arms"
@@ -52,7 +52,7 @@
             <path d="M13.641.205s-27.949 51.641-2 53.898" />
           </g>
           <path
-            d.one-time="paths.body"
+            d.bind="paths.body"
             id="kawaii-cat_body"
             fill.bind="color"
             fill-rule="nonzero"
@@ -81,7 +81,7 @@
             opacity="0.25"
           />
           <g as-element="kawaii-face"
-            mood.one-time="mood"
+            mood.bind="mood"
             transform="translate(59 67)"
             unique-id.bind="getUniqueId()"
           />
@@ -92,7 +92,7 @@
             fill-rule="nonzero"
           />
           <path
-            d.one-time="paths.shadow"
+            d.bind="paths.shadow"
             id="kawaii-cat_shadow"
             fill="#121212"
             fill-rule="nonzero"

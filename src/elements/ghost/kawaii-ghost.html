@@ -8,16 +8,16 @@
     >
       <g id="kawaii-ghost">
         <g id="kawaii-ghost__body">
-          <path d.one-time="paths.shape" id="kawaii-ghost__shape" fill.bind="color" />
+          <path d.bind="paths.shape" id="kawaii-ghost__shape" fill.bind="color" />
           <path
-            d.one-time="paths.shadow"
+            d.bind="paths.shadow"
             id="kawaii-ghost__shadow"
             fill-opacity=".1"
             fill="#000000"
           />
         </g>
         <g as-element="kawaii-face"
-          mood.one-time="mood"
+          mood.bind="mood"
           transform="translate(34 57)"
           unique-id.bind="getUniqueId()"
         />

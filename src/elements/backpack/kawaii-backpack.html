@@ -6,8 +6,8 @@
       viewBox="0 0 138 218"
     >
       <defs>
-        <path id="pocket__shape-path" d.one-time="paths.pocketShapePath" />
-        <path id="pocket__shape__shadow-path" d.one-time="paths.pocketShapeShadowPath" />
+        <path id="pocket__shape-path" d.bind="paths.pocketShapePath" />
+        <path id="pocket__shape__shadow-path" d.bind="paths.pocketShapeShadowPath" />
       </defs>
       <g id="kawaii-backpack" transform="translate(0 -1)">
         <g
@@ -67,24 +67,24 @@
           <path
             id="hanging-loop__shape"
             fill.bind="color"
-            d.one-time="paths.hangingLoopShape"
+            d.bind="paths.hangingLoopShape"
           />
         </g>
         <g id="main-compartment" transform="translate(0 26.617)">
           <path
             id="main-compartment__shape"
             fill.bind="color"
-            d.one-time="paths.mainCompartmentShape"
+            d.bind="paths.mainCompartmentShape"
           />
           <path
             id="main-compartment__bottom-stripe"
             fill="#121212"
             fill-rule="nonzero"
-            d.one-time="paths.mainCompartmentBottomStripe"
+            d.bind="paths.mainCompartmentBottomStripe"
             opacity="0.07"
           />
           <g as-element="kawaii-face"
-            mood.one-time="mood"
+            mood.bind="mood"
             transform="translate(36 70)"
             unique-id.bind="getUniqueId()"
           />
@@ -92,7 +92,7 @@
             id="main-compartment__top"
             fill="#121212"
             fill-rule="nonzero"
-            d.one-time="paths.mainCompartmentTop"
+            d.bind="paths.mainCompartmentTop"
             opacity="0.07"
           />
         </g>
@@ -135,7 +135,7 @@
                 opacity="0.587"
                 d="M107.066 0h5.948v5.948h-5.948z"
               />
-              <path id="zip" fill="#49505A" d.one-time="paths.zip" opacity="0.746" />
+              <path id="zip" fill="#49505A" d.bind="paths.zip" opacity="0.746" />
             </g>
           </g>
           <g id="brand" mask="url(#mask-6)">

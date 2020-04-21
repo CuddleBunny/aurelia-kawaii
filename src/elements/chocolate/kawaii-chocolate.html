@@ -7,7 +7,7 @@
       viewBox="0 0 114 211"
     >
       <g id="chocolate">
-        <path id="body" fill="#8E5434" d.one-time="paths.choco_background"></path>
+        <path id="body" fill="#8E5434" d.bind="paths.choco_background"></path>
         <g id="bars">
           <g id="choco-inner_1">
             <path
@@ -15,7 +15,7 @@
               fill="#fff"
               fill-opacity="0.1"
               fill-rule="evenodd"
-              d.one-time="paths.choco_inner_1"
+              d.bind="paths.choco_inner_1"
               clip-rule="evenodd"
             ></path>
           </g>
@@ -25,7 +25,7 @@
               fill="#fff"
               fill-opacity="0.1"
               fill-rule="evenodd"
-              d.one-time="paths.choco_inner_2"
+              d.bind="paths.choco_inner_2"
               clip-rule="evenodd"
             ></path>
           </g>
@@ -35,7 +35,7 @@
               fill="#fff"
               fill-opacity="0.1"
               fill-rule="evenodd"
-              d.one-time="paths.choco_inner_3"
+              d.bind="paths.choco_inner_3"
               clip-rule="evenodd"
             ></path>
           </g>
@@ -45,7 +45,7 @@
               fill="#fff"
               fill-opacity="0.1"
               fill-rule="evenodd"
-              d.one-time="paths.choco_inner_4"
+              d.bind="paths.choco_inner_4"
               clip-rule="evenodd"
             ></path>
           </g>
@@ -55,7 +55,7 @@
               fill="#fff"
               fill-opacity="0.1"
               fill-rule="evenodd"
-              d.one-time="paths.choco_inner_5"
+              d.bind="paths.choco_inner_5"
               clip-rule="evenodd"
             ></path>
           </g>
@@ -65,15 +65,15 @@
               fill="#fff"
               fill-opacity="0.1"
               fill-rule="evenodd"
-              d.one-time="paths.choco_inner_6"
+              d.bind="paths.choco_inner_6"
               clip-rule="evenodd"
             ></path>
           </g>
         </g>
         <g id="Group 15">
-          <path id="paper" fill.bind="color" d.one-time="paths.paper"></path>
+          <path id="paper" fill.bind="color" d.bind="paths.paper"></path>
           <g id="paper-folded">
-            <path id="Vector" fill.bind="color" d.one-time="paths.paper_folded"></path>
+            <path id="Vector" fill.bind="color" d.bind="paths.paper_folded"></path>
             <path
               id="Vector_2"
               fill="#000"
@@ -84,7 +84,7 @@
         </g>
       </g>
       <g as-element="kawaii-face"
-        mood.one-time="mood"
+        mood.bind="mood"
         transform="translate(25 150)"
         unique-id.bind="getUniqueId()"
       />

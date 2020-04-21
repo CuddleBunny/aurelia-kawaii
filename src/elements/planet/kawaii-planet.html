@@ -8,8 +8,8 @@
       xmlns:xlink="http://www.w3.org/1999/xlink"
     >
       <defs>
-        <path d.one-time="paths.shape" id="kawaii-planet__shape--path" />
-        <path d.one-time="paths.shadow" id="kawaii-planet__shadow--path" />
+        <path d.bind="paths.shape" id="kawaii-planet__shape--path" />
+        <path d.bind="paths.shadow" id="kawaii-planet__shadow--path" />
       </defs>
       <g id="kawaii-planet">
         <g id="kawaii-planet__body">
@@ -32,7 +32,7 @@
           />
         </g>
         <g as-element="kawaii-face"
-          mood.one-time="mood"
+          mood.bind="mood"
           transform="translate(34 57)"
           unique-id.bind="getUniqueId()"
         />
