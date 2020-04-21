@@ -2,7 +2,29 @@
   "name": "aurelia-kawaii",
   "type": "project:plugin",
   "sync": {
-    "sourceOrigin": "https://github.com/miukimiu/react-kawaii.git"
+    "sourceOrigin": "https://github.com/miukimiu/react-kawaii.git",
+    "sourceIgnore": ["common"],
+    "localIgnore": ["face", "kawaii-element.ts"],
+    "transformations": [
+        { "match": "uniqueId={getUniqueId()}", "replace": "unique-id.bind=\"getUniqueId()\"" },
+        { "match": "Face", "replace": "g as-element=\"kawaii-face\"" },
+        { "match": "fillRule", "replace": "fill-rule" },
+        { "match": "fillOpacity", "replace": "fill-opacity" },
+        { "match": "clipRule", "replace": "clip-rule" },
+        { "match": "xlinkHref", "replace": "xlink:href" },
+        { "match": "xmlnsXlink", "replace": "xmlns:xlink" },
+        { "match": "d={([^}]*)}", "replace": "d.one-time=\"$1\"", "isRegex": true },
+        { "match": "(\\w*)={([^}]*)}", "replace": "$1.bind=\"$2\"", "isRegex": true }
+    ],
+    "moodMap": {
+        "sad": "Sad",
+        "shocked": "Shocked",
+        "happy": "Happy",
+        "blissful": "Blissful",
+        "lovestruct": "Lovestruck",
+        "excited": "Excited",
+        "ko": "KO"
+    }
   },
   "paths": {
     "root": "dev-app",

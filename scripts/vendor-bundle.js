@@ -24897,13 +24897,25 @@ define('elements/browser/kawaii-browser',['__dot_dot__/src/elements/browser/kawa
 define('text!elements/browser/kawaii-browser.html',['text!__dot_dot__/src/elements/browser/kawaii-browser.html'],function(m){return m;});
 define('elements/cat/kawaii-cat',['__dot_dot__/src/elements/cat/kawaii-cat'],function(m){return m;});
 define('text!elements/cat/kawaii-cat.html',['text!__dot_dot__/src/elements/cat/kawaii-cat.html'],function(m){return m;});
+define('elements/chocolate/kawaii-chocolate',['__dot_dot__/src/elements/chocolate/kawaii-chocolate'],function(m){return m;});
+define('text!elements/chocolate/kawaii-chocolate.html',['text!__dot_dot__/src/elements/chocolate/kawaii-chocolate.html'],function(m){return m;});
 define('elements/credit-card/kawaii-credit-card',['__dot_dot__/src/elements/credit-card/kawaii-credit-card'],function(m){return m;});
 define('text!elements/credit-card/kawaii-credit-card.html',['text!__dot_dot__/src/elements/credit-card/kawaii-credit-card.html'],function(m){return m;});
 define('elements/face/kawaii-face',['__dot_dot__/src/elements/face/kawaii-face'],function(m){return m;});
 define('text!elements/face/kawaii-face.html',['text!__dot_dot__/src/elements/face/kawaii-face.html'],function(m){return m;});
 define('elements/file/kawaii-file',['__dot_dot__/src/elements/file/kawaii-file'],function(m){return m;});
 define('text!elements/file/kawaii-file.html',['text!__dot_dot__/src/elements/file/kawaii-file.html'],function(m){return m;});
+define('elements/ghost/kawaii-ghost',['__dot_dot__/src/elements/ghost/kawaii-ghost'],function(m){return m;});
+define('text!elements/ghost/kawaii-ghost.html',['text!__dot_dot__/src/elements/ghost/kawaii-ghost.html'],function(m){return m;});
+define('elements/ice-cream/kawaii-ice-cream',['__dot_dot__/src/elements/ice-cream/kawaii-ice-cream'],function(m){return m;});
+define('text!elements/ice-cream/kawaii-ice-cream.html',['text!__dot_dot__/src/elements/ice-cream/kawaii-ice-cream.html'],function(m){return m;});
 define('elements/kawaii-element',['__dot_dot__/src/elements/kawaii-element'],function(m){return m;});
+define('elements/mug/kawaii-mug',['__dot_dot__/src/elements/mug/kawaii-mug'],function(m){return m;});
+define('text!elements/mug/kawaii-mug.html',['text!__dot_dot__/src/elements/mug/kawaii-mug.html'],function(m){return m;});
+define('elements/planet/kawaii-planet',['__dot_dot__/src/elements/planet/kawaii-planet'],function(m){return m;});
+define('text!elements/planet/kawaii-planet.html',['text!__dot_dot__/src/elements/planet/kawaii-planet.html'],function(m){return m;});
+define('elements/speech-bubble/kawaii-speech-bubble',['__dot_dot__/src/elements/speech-bubble/kawaii-speech-bubble'],function(m){return m;});
+define('text!elements/speech-bubble/kawaii-speech-bubble.html',['text!__dot_dot__/src/elements/speech-bubble/kawaii-speech-bubble.html'],function(m){return m;});
 define('resources',['resources/index'],function(m){return m;});
 define('resources/elements/backpack/kawaii-backpack',['__dot_dot__/src/elements/backpack/kawaii-backpack'],function(m){return m;});
 define('text!resources/elements/backpack/kawaii-backpack.html',['text!__dot_dot__/src/elements/backpack/kawaii-backpack.html'],function(m){return m;});
@@ -24911,13 +24923,25 @@ define('resources/elements/browser/kawaii-browser',['__dot_dot__/src/elements/br
 define('text!resources/elements/browser/kawaii-browser.html',['text!__dot_dot__/src/elements/browser/kawaii-browser.html'],function(m){return m;});
 define('resources/elements/cat/kawaii-cat',['__dot_dot__/src/elements/cat/kawaii-cat'],function(m){return m;});
 define('text!resources/elements/cat/kawaii-cat.html',['text!__dot_dot__/src/elements/cat/kawaii-cat.html'],function(m){return m;});
+define('resources/elements/chocolate/kawaii-chocolate',['__dot_dot__/src/elements/chocolate/kawaii-chocolate'],function(m){return m;});
+define('text!resources/elements/chocolate/kawaii-chocolate.html',['text!__dot_dot__/src/elements/chocolate/kawaii-chocolate.html'],function(m){return m;});
 define('resources/elements/credit-card/kawaii-credit-card',['__dot_dot__/src/elements/credit-card/kawaii-credit-card'],function(m){return m;});
 define('text!resources/elements/credit-card/kawaii-credit-card.html',['text!__dot_dot__/src/elements/credit-card/kawaii-credit-card.html'],function(m){return m;});
 define('resources/elements/face/kawaii-face',['__dot_dot__/src/elements/face/kawaii-face'],function(m){return m;});
 define('text!resources/elements/face/kawaii-face.html',['text!__dot_dot__/src/elements/face/kawaii-face.html'],function(m){return m;});
 define('resources/elements/file/kawaii-file',['__dot_dot__/src/elements/file/kawaii-file'],function(m){return m;});
 define('text!resources/elements/file/kawaii-file.html',['text!__dot_dot__/src/elements/file/kawaii-file.html'],function(m){return m;});
+define('resources/elements/ghost/kawaii-ghost',['__dot_dot__/src/elements/ghost/kawaii-ghost'],function(m){return m;});
+define('text!resources/elements/ghost/kawaii-ghost.html',['text!__dot_dot__/src/elements/ghost/kawaii-ghost.html'],function(m){return m;});
+define('resources/elements/ice-cream/kawaii-ice-cream',['__dot_dot__/src/elements/ice-cream/kawaii-ice-cream'],function(m){return m;});
+define('text!resources/elements/ice-cream/kawaii-ice-cream.html',['text!__dot_dot__/src/elements/ice-cream/kawaii-ice-cream.html'],function(m){return m;});
 define('resources/elements/kawaii-element',['__dot_dot__/src/elements/kawaii-element'],function(m){return m;});
+define('resources/elements/mug/kawaii-mug',['__dot_dot__/src/elements/mug/kawaii-mug'],function(m){return m;});
+define('text!resources/elements/mug/kawaii-mug.html',['text!__dot_dot__/src/elements/mug/kawaii-mug.html'],function(m){return m;});
+define('resources/elements/planet/kawaii-planet',['__dot_dot__/src/elements/planet/kawaii-planet'],function(m){return m;});
+define('text!resources/elements/planet/kawaii-planet.html',['text!__dot_dot__/src/elements/planet/kawaii-planet.html'],function(m){return m;});
+define('resources/elements/speech-bubble/kawaii-speech-bubble',['__dot_dot__/src/elements/speech-bubble/kawaii-speech-bubble'],function(m){return m;});
+define('text!resources/elements/speech-bubble/kawaii-speech-bubble.html',['text!__dot_dot__/src/elements/speech-bubble/kawaii-speech-bubble.html'],function(m){return m;});
 define('resources/index',['__dot_dot__/src/index'],function(m){return m;});
 define('resources/mood',['__dot_dot__/src/mood'],function(m){return m;});
 define('text',['text/text'],function(m){return m;});;
@@ -24943,13 +24967,25 @@ function _aureliaConfigureModuleLoader(){requirejs.config({
       "text!__dot_dot__/src/elements/browser/kawaii-browser.html",
       "__dot_dot__/src/elements/cat/kawaii-cat",
       "text!__dot_dot__/src/elements/cat/kawaii-cat.html",
+      "__dot_dot__/src/elements/chocolate/kawaii-chocolate",
+      "text!__dot_dot__/src/elements/chocolate/kawaii-chocolate.html",
       "__dot_dot__/src/elements/credit-card/kawaii-credit-card",
       "text!__dot_dot__/src/elements/credit-card/kawaii-credit-card.html",
       "__dot_dot__/src/elements/face/kawaii-face",
       "text!__dot_dot__/src/elements/face/kawaii-face.html",
       "__dot_dot__/src/elements/file/kawaii-file",
       "text!__dot_dot__/src/elements/file/kawaii-file.html",
+      "__dot_dot__/src/elements/ghost/kawaii-ghost",
+      "text!__dot_dot__/src/elements/ghost/kawaii-ghost.html",
+      "__dot_dot__/src/elements/ice-cream/kawaii-ice-cream",
+      "text!__dot_dot__/src/elements/ice-cream/kawaii-ice-cream.html",
       "__dot_dot__/src/elements/kawaii-element",
+      "__dot_dot__/src/elements/mug/kawaii-mug",
+      "text!__dot_dot__/src/elements/mug/kawaii-mug.html",
+      "__dot_dot__/src/elements/planet/kawaii-planet",
+      "text!__dot_dot__/src/elements/planet/kawaii-planet.html",
+      "__dot_dot__/src/elements/speech-bubble/kawaii-speech-bubble",
+      "text!__dot_dot__/src/elements/speech-bubble/kawaii-speech-bubble.html",
       "__dot_dot__/src/index",
       "__dot_dot__/src/mood",
       "app",
