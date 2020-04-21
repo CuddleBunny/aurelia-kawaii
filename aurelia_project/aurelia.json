@@ -1,6 +1,9 @@
 {
   "name": "aurelia-kawaii",
   "type": "project:plugin",
+  "sync": {
+    "sourceOrigin": "https://github.com/miukimiu/react-kawaii.git"
+  },
   "paths": {
     "root": "dev-app",
     "resources": "../src",

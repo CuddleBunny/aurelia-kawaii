@@ -1,4 +1,3 @@
-import { bindable } from 'aurelia-framework';
 import { Mood } from './../mood';
 
 export interface IKawaiiElement {

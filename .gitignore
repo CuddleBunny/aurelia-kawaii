@@ -16,6 +16,9 @@ Thumbs.db
 # Dependencies
 node_modules
 
+# Temp files
+/temp
+
 # Compiled files
 /src/environment.js
 /src/environment.ts

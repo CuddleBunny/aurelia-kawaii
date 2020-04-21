@@ -5415,7 +5415,7 @@ var ModifyMapObserver = function (_ModifyCollectionObse2) {
 var emLogger = LogManager.getLogger('event-manager');
 
 function findOriginalEventTarget(event) {
-  return event.path && event.path[0] || event.deepPath && event.deepPath[0] || event.target;
+  return event.composedPath && event.composedPath()[0] || event.deepPath && event.deepPath()[0] || event.path && event.path[0] || event.target;
 }
 
 function stopPropagation() {
@@ -5479,43 +5479,47 @@ var CapturedHandlerEntry = function () {
   return CapturedHandlerEntry;
 }();
 
-function handleDelegatedEvent(event) {
-  event.propagationStopped = false;
-  var target = findOriginalEventTarget(event);
-
-  while (target && !event.propagationStopped) {
-    if (target.delegatedCallbacks) {
-      var callback = target.delegatedCallbacks[event.type];
-      if (callback) {
-        if (event.stopPropagation !== stopPropagation) {
-          event.standardStopPropagation = event.stopPropagation;
-          event.stopPropagation = stopPropagation;
-        }
-        if ('handleEvent' in callback) {
-          callback.handleEvent(event);
-        } else {
-          callback(event);
-        }
-      }
-    }
-
-    target = target.parentNode;
-  }
-}
-
 var DelegateHandlerEntry = function () {
-  function DelegateHandlerEntry(eventName) {
+  function DelegateHandlerEntry(eventName, eventManager) {
     
 
     this.eventName = eventName;
     this.count = 0;
+    this.eventManager = eventManager;
   }
+
+  DelegateHandlerEntry.prototype.handleEvent = function handleEvent(event) {
+    event.propagationStopped = false;
+    var target = findOriginalEventTarget(event);
+
+    while (target && !event.propagationStopped) {
+      if (target.delegatedCallbacks) {
+        var callback = target.delegatedCallbacks[event.type];
+        if (callback) {
+          if (event.stopPropagation !== stopPropagation) {
+            event.standardStopPropagation = event.stopPropagation;
+            event.stopPropagation = stopPropagation;
+          }
+          if ('handleEvent' in callback) {
+            callback.handleEvent(event);
+          } else {
+            callback(event);
+          }
+        }
+      }
+
+      var parent = target.parentNode;
+      var shouldEscapeShadowRoot = this.eventManager.escapeShadowRoot && parent instanceof ShadowRoot;
+
+      target = shouldEscapeShadowRoot ? parent.host : parent;
+    }
+  };
 
   DelegateHandlerEntry.prototype.increment = function increment() {
     this.count++;
 
     if (this.count === 1) {
-      _aureliaPal.DOM.addEventListener(this.eventName, handleDelegatedEvent, false);
+      _aureliaPal.DOM.addEventListener(this.eventName, this, false);
     }
   };
 
@@ -5523,7 +5527,7 @@ var DelegateHandlerEntry = function () {
     if (this.count === 0) {
       emLogger.warn('The same EventListener was disposed multiple times.');
     } else if (--this.count === 0) {
-      _aureliaPal.DOM.removeEventListener(this.eventName, handleDelegatedEvent, false);
+      _aureliaPal.DOM.removeEventListener(this.eventName, this, false);
     }
   };
 
@@ -5568,11 +5572,13 @@ var EventHandler = function () {
 }();
 
 var DefaultEventStrategy = function () {
-  function DefaultEventStrategy() {
+  function DefaultEventStrategy(eventManager) {
     
 
     this.delegatedHandlers = {};
     this.capturedHandlers = {};
+
+    this.eventManager = eventManager;
   }
 
   DefaultEventStrategy.prototype.subscribe = function subscribe(target, targetEvent, callback, strategy, disposable) {
@@ -5582,7 +5588,7 @@ var DefaultEventStrategy = function () {
 
     if (strategy === delegationStrategy.bubbling) {
       delegatedHandlers = this.delegatedHandlers;
-      handlerEntry = delegatedHandlers[targetEvent] || (delegatedHandlers[targetEvent] = new DelegateHandlerEntry(targetEvent));
+      handlerEntry = delegatedHandlers[targetEvent] || (delegatedHandlers[targetEvent] = new DelegateHandlerEntry(targetEvent, this.eventManager));
       var delegatedCallbacks = target.delegatedCallbacks || (target.delegatedCallbacks = {});
       if (!delegatedCallbacks[targetEvent]) {
         handlerEntry.increment();
@@ -5643,10 +5649,13 @@ var delegationStrategy = exports.delegationStrategy = {
 
 var EventManager = exports.EventManager = function () {
   function EventManager() {
+    var escapeShadowRoot = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
     
 
     this.elementHandlerLookup = {};
     this.eventStrategyLookup = {};
+    this.escapeShadowRoot = escapeShadowRoot;
 
     this.registerElementConfig({
       tagName: 'input',
@@ -5686,7 +5695,7 @@ var EventManager = exports.EventManager = function () {
       }
     });
 
-    this.defaultEventStrategy = new DefaultEventStrategy();
+    this.defaultEventStrategy = new DefaultEventStrategy(this);
   }
 
   EventManager.prototype.registerElementConfig = function registerElementConfig(config) {
@@ -8013,6 +8022,9 @@ function __metadata(metadataKey, metadataValue) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
 }
 
+function isInjectable(potentialTarget) {
+    return !!potentialTarget;
+}
 function autoinject(potentialTarget) {
     var deco = function (target) {
         if (!target.hasOwnProperty('inject')) {
@@ -8025,7 +8037,10 @@ function autoinject(potentialTarget) {
             }
         }
     };
-    return potentialTarget ? deco(potentialTarget) : deco;
+    if (isInjectable(potentialTarget)) {
+        return deco(potentialTarget);
+    }
+    return deco;
 }
 function inject() {
     var rest = [];
@@ -8056,6 +8071,14 @@ var resolver = aureliaMetadata.protocol.create('aurelia:resolver', function (tar
     }
     return true;
 });
+(function (Strategy) {
+    Strategy[Strategy["instance"] = 0] = "instance";
+    Strategy[Strategy["singleton"] = 1] = "singleton";
+    Strategy[Strategy["transient"] = 2] = "transient";
+    Strategy[Strategy["function"] = 3] = "function";
+    Strategy[Strategy["array"] = 4] = "array";
+    Strategy[Strategy["alias"] = 5] = "alias";
+})(exports.Strategy || (exports.Strategy = {}));
 function isStrategy(actual, expected, state) {
     return actual === expected;
 }
@@ -8065,25 +8088,25 @@ var StrategyResolver = (function () {
         this.state = state;
     }
     StrategyResolver.prototype.get = function (container, key) {
-        if (isStrategy(this.strategy, 0, this.state)) {
+        if (isStrategy(this.strategy, exports.Strategy.instance, this.state)) {
             return this.state;
         }
-        if (isStrategy(this.strategy, 1, this.state)) {
+        if (isStrategy(this.strategy, exports.Strategy.singleton, this.state)) {
             var singleton = container.invoke(this.state);
             this.state = singleton;
             this.strategy = 0;
             return singleton;
         }
-        if (isStrategy(this.strategy, 2, this.state)) {
+        if (isStrategy(this.strategy, exports.Strategy.transient, this.state)) {
             return container.invoke(this.state);
         }
-        if (isStrategy(this.strategy, 3, this.state)) {
+        if (isStrategy(this.strategy, exports.Strategy.function, this.state)) {
             return this.state(container, key, this);
         }
-        if (isStrategy(this.strategy, 4, this.state)) {
+        if (isStrategy(this.strategy, exports.Strategy.array, this.state)) {
             return this.state[0].get(container, key);
         }
-        if (isStrategy(this.strategy, 5, this.state)) {
+        if (isStrategy(this.strategy, exports.Strategy.alias, this.state)) {
             return container.get(this.state);
         }
         throw new Error('Invalid strategy: ' + this.strategy);
@@ -8181,7 +8204,7 @@ var Factory = (function () {
     Factory.prototype.get = function (container) {
         var fn = this._key;
         var resolver = container.getResolver(fn);
-        if (resolver && resolver.strategy === 3) {
+        if (resolver && resolver.strategy === exports.Strategy.function) {
             fn = resolver.state;
         }
         return function () {
@@ -11506,7 +11529,11 @@ function join(path1, path2) {
 
   for (var i = 0, ii = url1.length; i < ii; ++i) {
     if (url1[i] === '..') {
-      url3.pop();
+      if (url3.length && url3[url3.length - 1] !== '..') {
+        url3.pop();
+      } else {
+        url3.push(url1[i]);
+      }
     } else if (url1[i] === '.' || url1[i] === '') {
       continue;
     } else {
@@ -11516,7 +11543,11 @@ function join(path1, path2) {
 
   for (var _i = 0, _ii = url2.length; _i < _ii; ++_i) {
     if (url2[_i] === '..') {
-      url3.pop();
+      if (url3.length && url3[url3.length - 1] !== '..') {
+        url3.pop();
+      } else {
+        url3.push(url2[_i]);
+      }
     } else if (url2[_i] === '.' || url2[_i] === '') {
       continue;
     } else {
@@ -17573,10 +17604,10 @@ var Repeat = (function (_super) {
             if (Repeat_1.useInnerMatcher) {
                 return extractMatcherBindingExpression(instructions);
             }
-            if (template.children.length > 1) {
+            if (getChildrenCount(template) > 1) {
                 return undefined;
             }
-            var repeatedElement = template.firstElementChild;
+            var repeatedElement = getFirstElementChild(template);
             if (!repeatedElement.hasAttribute('au-target-id')) {
                 return undefined;
             }
@@ -17670,6 +17701,26 @@ var extractMatcherBindingExpression = function (instructions, targetedElementId)
             }
         }
     }
+};
+var getChildrenCount = function (el) {
+    var childNodes = el.childNodes;
+    var count = 0;
+    for (var i = 0, ii = childNodes.length; ii > i; ++i) {
+        if (childNodes[i].nodeType === 1) {
+            ++count;
+        }
+    }
+    return count;
+};
+var getFirstElementChild = function (el) {
+    var firstChild = el.firstChild;
+    while (firstChild !== null) {
+        if (firstChild.nodeType === 1) {
+            return firstChild;
+        }
+        firstChild = firstChild.nextSibling;
+    }
+    return null;
 };
 
 var aureliaHideClassName = 'aurelia-hide';
@@ -18845,7 +18896,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _class, _temp, _class2, _temp2, _dec, _class3, _dec2, _class4, _dec3, _class5, _dec4, _class6, _dec5, _class7, _dec6, _class8, _class9, _temp3, _class10, _temp4, _class12, _dec7, _class14, _dec8, _class15, _class16, _temp5, _dec9, _class17, _dec10, _class18, _dec11, _class19;
+var _class, _temp, _class2, _temp2, _dec, _class3, _dec2, _class4, _dec3, _class5, _dec4, _class6, _dec5, _class7, _dec6, _class8, _class9, _temp3, _class10, _temp4, _class12, _class14, _temp5, _dec7, _class15, _dec8, _class16, _dec9, _class17;
 
 exports._hyphenate = _hyphenate;
 exports._isAllWhitespace = _isAllWhitespace;
@@ -19762,7 +19813,9 @@ var PassThroughSlot = exports.PassThroughSlot = function () {
     this.destinationName = destinationName;
     this.fallbackFactory = fallbackFactory;
     this.destinationSlot = null;
+
     this.projections = 0;
+
     this.contentView = null;
 
     var attr = new SlotCustomAttribute(this.anchor);
@@ -19873,6 +19926,7 @@ var ShadowSlot = exports.ShadowSlot = function () {
     this.fallbackFactory = fallbackFactory;
     this.contentView = null;
     this.projections = 0;
+
     this.children = [];
     this.projectFromAnchors = null;
     this.destinationSlots = null;
@@ -19918,6 +19972,7 @@ var ShadowSlot = exports.ShadowSlot = function () {
       });
       if (found) {
         var _children = found.auProjectionChildren;
+        var ownChildren = this.children;
 
         for (var i = 0, ii = _children.length; i < ii; ++i) {
           var _child = _children[i];
@@ -19926,7 +19981,12 @@ var ShadowSlot = exports.ShadowSlot = function () {
             _children.splice(i, 1);
             view.fragment.appendChild(_child);
             i--;ii--;
+
             this.projections--;
+            var idx = ownChildren.indexOf(_child);
+            if (idx > -1) {
+              ownChildren.splice(idx, 1);
+            }
           }
         }
 
@@ -19949,10 +20009,17 @@ var ShadowSlot = exports.ShadowSlot = function () {
 
       if (found) {
         var _children2 = found.auProjectionChildren;
+        var ownChildren = this.children;
+
         for (var i = 0, ii = _children2.length; i < ii; ++i) {
           var _child2 = _children2[i];
           _child2.auOwnerView.fragment.appendChild(_child2);
+
           this.projections--;
+          var idx = ownChildren.indexOf(_child2);
+          if (idx > -1) {
+            ownChildren.splice(idx, 1);
+          }
         }
 
         found.auProjectionChildren = [];
@@ -21589,7 +21656,11 @@ function makeShadowSlot(compiler, resources, node, instructions, parentInjectorI
 
 var defaultLetHandler = BindingLanguage.prototype.createLetExpressions;
 
-var ViewCompiler = exports.ViewCompiler = (_dec7 = (0, _aureliaDependencyInjection.inject)(BindingLanguage, ViewResources), _dec7(_class14 = function () {
+var ViewCompiler = exports.ViewCompiler = function () {
+  ViewCompiler.inject = function inject() {
+    return [BindingLanguage, ViewResources];
+  };
+
   function ViewCompiler(bindingLanguage, resources) {
     
 
@@ -22006,7 +22077,7 @@ var ViewCompiler = exports.ViewCompiler = (_dec7 = (0, _aureliaDependencyInjecti
   };
 
   return ViewCompiler;
-}()) || _class14);
+}();
 
 var ResourceModule = exports.ResourceModule = function () {
   function ResourceModule(moduleId) {
@@ -22295,7 +22366,11 @@ var ProxyViewFactory = function () {
 
 var auSlotBehavior = null;
 
-var ViewEngine = exports.ViewEngine = (_dec8 = (0, _aureliaDependencyInjection.inject)(_aureliaLoader.Loader, _aureliaDependencyInjection.Container, ViewCompiler, ModuleAnalyzer, ViewResources), _dec8(_class15 = (_temp5 = _class16 = function () {
+var ViewEngine = exports.ViewEngine = (_temp5 = _class14 = function () {
+  ViewEngine.inject = function inject() {
+    return [_aureliaLoader.Loader, _aureliaDependencyInjection.Container, ViewCompiler, ModuleAnalyzer, ViewResources];
+  };
+
   function ViewEngine(loader, container, viewCompiler, moduleAnalyzer, appResources) {
     
 
@@ -22484,7 +22559,7 @@ var ViewEngine = exports.ViewEngine = (_dec8 = (0, _aureliaDependencyInjection.i
   };
 
   return ViewEngine;
-}(), _class16.viewModelRequireMetadataKey = 'aurelia:view-model-require', _temp5)) || _class15);
+}(), _class14.viewModelRequireMetadataKey = 'aurelia:view-model-require', _temp5);
 
 var Controller = exports.Controller = function () {
   function Controller(behavior, instruction, viewModel, container) {
@@ -22657,7 +22732,7 @@ var Controller = exports.Controller = function () {
   return Controller;
 }();
 
-var BehaviorPropertyObserver = exports.BehaviorPropertyObserver = (_dec9 = (0, _aureliaBinding.subscriberCollection)(), _dec9(_class17 = function () {
+var BehaviorPropertyObserver = exports.BehaviorPropertyObserver = (_dec7 = (0, _aureliaBinding.subscriberCollection)(), _dec7(_class15 = function () {
   function BehaviorPropertyObserver(taskQueue, obj, propertyName, selfSubscriber, initialValue) {
     
 
@@ -22719,7 +22794,7 @@ var BehaviorPropertyObserver = exports.BehaviorPropertyObserver = (_dec9 = (0, _
   };
 
   return BehaviorPropertyObserver;
-}()) || _class17);
+}()) || _class15);
 
 
 function getObserver(instance, name) {
@@ -23650,7 +23725,7 @@ function tryActivateViewModel(context) {
   return context.viewModel.activate(context.model) || Promise.resolve();
 }
 
-var CompositionEngine = exports.CompositionEngine = (_dec10 = (0, _aureliaDependencyInjection.inject)(ViewEngine, ViewLocator), _dec10(_class18 = function () {
+var CompositionEngine = exports.CompositionEngine = (_dec8 = (0, _aureliaDependencyInjection.inject)(ViewEngine, ViewLocator), _dec8(_class16 = function () {
   function CompositionEngine(viewEngine, viewLocator) {
     
 
@@ -23816,7 +23891,7 @@ var CompositionEngine = exports.CompositionEngine = (_dec10 = (0, _aureliaDepend
   };
 
   return CompositionEngine;
-}()) || _class18);
+}()) || _class16);
 
 var ElementConfigResource = exports.ElementConfigResource = function () {
   function ElementConfigResource() {
@@ -24028,7 +24103,7 @@ function viewResources() {
   };
 }
 
-var TemplatingEngine = exports.TemplatingEngine = (_dec11 = (0, _aureliaDependencyInjection.inject)(_aureliaDependencyInjection.Container, ModuleAnalyzer, ViewCompiler, CompositionEngine), _dec11(_class19 = function () {
+var TemplatingEngine = exports.TemplatingEngine = (_dec9 = (0, _aureliaDependencyInjection.inject)(_aureliaDependencyInjection.Container, ModuleAnalyzer, ViewCompiler, CompositionEngine), _dec9(_class17 = function () {
   function TemplatingEngine(container, moduleAnalyzer, viewCompiler, compositionEngine) {
     
 
@@ -24072,7 +24147,7 @@ var TemplatingEngine = exports.TemplatingEngine = (_dec11 = (0, _aureliaDependen
   };
 
   return TemplatingEngine;
-}()) || _class19);
+}()) || _class17);
 });
 ;
 define('aurelia-testing/dist/commonjs/aurelia-testing',['require','exports','module','./compile-spy','./view-spy','./component-tester','./wait'],function (require, exports, module) {"use strict";
