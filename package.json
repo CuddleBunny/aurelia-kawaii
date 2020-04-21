@@ -50,8 +50,5 @@
   "module": "dist/native-modules/index.js",
   "files": [
     "dist"
-  ],
-  "dependencies": {
-    "@yarnpkg/pnpify": "^2.0.0-rc.20"
-  }
+  ]
 }
