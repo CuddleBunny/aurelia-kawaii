@@ -1,0 +1,42 @@
+<template>
+    <svg
+      width.bind="size"
+      height.bind="size"
+      version="1.1"
+      viewBox="0 0 134 134"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+    >
+      <defs>
+        <path d.one-time="paths.shape" id="kawaii-planet__shape--path" />
+        <path d.one-time="paths.shadow" id="kawaii-planet__shadow--path" />
+      </defs>
+      <g id="kawaii-planet">
+        <g id="kawaii-planet__body">
+          <mask id="mask-2" fill="#fff">
+            <use xlink:href="#kawaii-planet__shape--path" />
+          </mask>
+          <use
+            id="kawaii-planet__shape"
+            fill.bind="color"
+            xlink:href="#kawaii-planet__shape--path"
+          />
+          <mask id="mask-4" fill="#fff">
+            <use xlink:href="#kawaii-planet__shadow--path" />
+          </mask>
+          <use
+            id="kawaii-planet__shadow"
+            fill="#000000"
+            opacity=".1"
+            xlink:href="#kawaii-planet__shadow--path"
+          />
+        </g>
+        <g as-element="kawaii-face"
+          mood.one-time="mood"
+          transform="translate(34 57)"
+          unique-id.bind="getUniqueId()"
+        />
+      </g>
+    </svg>
+  
+</template>
