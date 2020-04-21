@@ -1,7 +1,7 @@
 {
   "name": "aurelia-kawaii",
   "description": "Aurelia port of react-kawaii.",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/CuddleBunny/aurelia-kawaii.git"
