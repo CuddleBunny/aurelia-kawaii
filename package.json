@@ -31,7 +31,7 @@
     "minimatch": "^3.0.4",
     "promise-polyfill": "^8.1.0",
     "requirejs": "^2.3.6",
-    "simple-git": "^1.132.0",
+    "simple-git": "^3.5.0",
     "text": "requirejs/text#latest",
     "through2": "^3.0.0",
     "tslint": "^5.13.0",
